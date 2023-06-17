@@ -19,9 +19,6 @@ async def read_item(item_id: int, q: Union[str, None] = None):
 
 if __name__ == "__main__":
     uvicorn = Server(
-        Config(
-            "main:app",
-            port=8080,
-        ),
+        Config("main:app", port=8000, reload=True),
     )
     uvicorn.run()
