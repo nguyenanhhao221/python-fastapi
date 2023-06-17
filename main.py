@@ -7,6 +7,11 @@ from uvicorn import Config, Server
 app = FastAPI()
 
 
+@app.get("/health")
+async def check_health():
+    return {"status": "alive"}
+
+
 @app.get("/")
 async def read_root():
     return {"Hello": "World"}
