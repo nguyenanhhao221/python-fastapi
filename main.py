@@ -1,7 +1,7 @@
 from typing import Union
 
+import uvicorn
 from fastapi import FastAPI
-from uvicorn import Config, Server
 
 # Initialize fast api
 app = FastAPI()
@@ -23,7 +23,4 @@ async def read_item(item_id: int, q: Union[str, None] = None):
 
 
 if __name__ == "__main__":
-    uvicorn = Server(
-        Config("main:app", port=8000, reload=True),
-    )
-    uvicorn.run()
+    uvicorn.run("main:app", port=8000, reload=True)
